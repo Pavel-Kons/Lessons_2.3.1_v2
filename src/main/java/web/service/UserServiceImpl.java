@@ -1,9 +1,11 @@
 package web.service;
 
+import org.springframework.stereotype.Service;
 import web.dao.UserDao;
 import web.dao.UserDaoImpl;
 import web.model.User;
 
+@Service
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
