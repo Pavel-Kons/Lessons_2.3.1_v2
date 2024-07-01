@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import web.model.User;
 import web.service.UserService;
 
 @Controller
@@ -20,6 +21,8 @@ public class UserController {
     public String printUser(ModelMap model/*,
                            @RequestParam(value = "count",required = false,defaultValue = "5")*/) {
         model.addAttribute("users", userService);
+        User user = new User("A", "B", (byte) 1);
+        userService.saveUser(user);
         return "users";
     }
 }

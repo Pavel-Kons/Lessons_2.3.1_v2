@@ -1,17 +1,16 @@
 package web.config;
 
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -21,7 +20,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("web")
-public class DatabaseConfig implements WebMvcConfigurer {
+public class DatabaseConfig {
 
     private Environment environment;
 
@@ -67,52 +66,13 @@ public class DatabaseConfig implements WebMvcConfigurer {
 ////////////////////////////////////////////////////
 
 
-//    //Метод, который вернет объект dataSource для соединения к нашей бд, используя данные из файла db.properties
-//    @Bean
-//    public DataSource getDataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(environment.getProperty("hibernate.driver_class"));
-//        dataSource.setUrl(environment.getProperty("hibernate.connection.url"));
-//        dataSource.setUsername(environment.getProperty("hibernate.connection.username"));
-//        dataSource.setPassword(environment.getProperty("hibernate.connection.password"));
-//
-//        return dataSource;
-//    }
-//
-//    // метод, который создаст EntityManagerFactory, который будет управляться контейнером
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean getEntityManagerFactory() {
-//        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
-//        entityManager.setDataSource(getDataSource());
-//        entityManager.setPackagesToScan("web.model");
-//        entityManager.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-//        entityManager.setJpaProperties(getHibernateProperties());
-//        return entityManager;
-//    }
-//
-//
-//    //метод, который возвращает объект Properties, в который переданы свойства
-//    public Properties getHibernateProperties() {
-//        Properties properties = new Properties();
-//        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-//        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
-//        return properties;
-//    }
-//
-//    @Bean
-//    public JpaTransactionManager getTransactionManager() {
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(getEntityManagerFactory().getObject());
-//        return transactionManager;
-//    }
-
-
 //////////////////////////////////////////////////////////
 
 
     @Bean
     public DataSource dataSource() {
-        BasicDataSource basicDataSource = new BasicDataSource();
+//        BasicDataSource basicDataSource = new BasicDataSource();
+        DriverManagerDataSource basicDataSource = new DriverManagerDataSource();
 //        basicDataSource.setUrl(environment.getRequiredProperty("hibernate.connection.url"));
 //        basicDataSource.setDriverClassName(environment.getRequiredProperty("hibernate.driver_class"));
 //        basicDataSource.setUsername(environment.getRequiredProperty("hibernate.connection.username"));
