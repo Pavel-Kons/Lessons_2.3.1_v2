@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 public class Main {
     public static void main(String[] args) {
         System.out.println("At least it's working !");
-        System.out.println("At least it's working !");
 
         User user = new User("Pavel", "Konstantinov", (byte) 23);
         System.out.println(user);
