@@ -22,7 +22,10 @@ public class UserController {
                            @RequestParam(value = "count",required = false,defaultValue = "5")*/) {
         model.addAttribute("users", userService);
         User user = new User("A", "B", (byte) 1);
+        User user1 = new User("Pavel", "Konstantinov", (byte) 23);
+
         userService.saveUser(user);
+        userService.saveUser(user1);
         return "users";
     }
 }
