@@ -21,9 +21,4 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         userDao.saveUser(user);
     }
-
-    @Override
-    public User getUserById(Long id) {
-        return userDao.getUserById(id);
-    }
 }

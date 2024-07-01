@@ -1,20 +1,8 @@
-package web;
-
-
-public class Main {
-
-
-    public static void main(String[] args) {
-        System.out.println("At least it's working !");
-
-//        User user = new User("Pavel", "Konstantinov", (byte) 23);
-//        System.out.println(user);
+//package web;
 //
-//        final UserService userService = new UserServiceImpl();
-//        System.out.println(userService.getUserById(2L));
 //
-//        UserServiceImpl userService1 = new UserServiceImpl();
-//        userService1.saveUser(user);
-
-    }
-}
+//public class Main {
+//    public static void main(String[] args) {
+//        System.out.println("At least it's working !");
+//    }
+//}
