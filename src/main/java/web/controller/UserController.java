@@ -17,7 +17,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String userMeth(ModelMap model/*,
+    public String printUser(ModelMap model/*,
                            @RequestParam(value = "count",required = false,defaultValue = "5")*/) {
         model.addAttribute("users", userService);
         return "users";

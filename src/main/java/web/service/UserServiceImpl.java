@@ -1,5 +1,7 @@
 package web.service;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Service;
 import web.dao.UserDao;
 import web.dao.UserDaoImpl;
@@ -8,6 +10,8 @@ import web.model.User;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public UserServiceImpl() {
         userDao = new UserDaoImpl();
@@ -15,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        userDao.saveUser(user);
+        entityManager.persist(user);
     }
 
     @Override

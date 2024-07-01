@@ -1,15 +1,22 @@
 package web.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
 import web.model.User;
 import web.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserDaoImpl implements UserDao {
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Override
     public void saveUser(User user) {
-        Util.createSession(session -> session.save(user));
+        entityManager.persist(user);
     }
 
     @Override
