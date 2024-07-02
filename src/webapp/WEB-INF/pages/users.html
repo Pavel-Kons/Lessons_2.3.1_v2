@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,20 +7,36 @@
 </head>
 <body>
 <h1>User table</h1>
+<br>
 <p> Name: </p>
 <p> Surname: </p>
 <p> Age: </p>
-<!--<h3><a href="/cars?count=1">1</a>&nbsp;-->
-<!--    <a href="/cars?count=2">2</a>&nbsp;-->
-<!--    <a href="/cars?count=3">3</a>&nbsp;-->
-<!--    <a href="/cars?count=4">4</a>&nbsp;-->
-<!--    <a href="/cars?count=5">5</a>&nbsp;-->
-<!--</h3>-->
+<h3><a href="/users?count=1">1</a>&nbsp;
+    <a href="/users?count=2">2</a>&nbsp;
+    <a href="/users?count=3">3</a>&nbsp;
+    <a href="/users?count=4">4</a>&nbsp;
+    <a href="/users?count=5">5</a>&nbsp;
+</h3>
+<br>
 <div>
     <th:block th:each="user : ${users}">
         <h2 th:text="${user}"></h2>
     </th:block>
 </div>
+<br>
+<table>
+    <tr>
+        <th> Name</th>
+        <th> Surname</th>
+        <th> Age</th>
+    </tr>
+    <forEach items="${users}" var="emp">
+        <tr>
+            <td>${emp.name}</td>
+        </tr>
+    </forEach>
+</table>
+
 
 </body>
 </html>
