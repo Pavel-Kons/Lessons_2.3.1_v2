@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
 
@@ -18,14 +19,22 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String printUser(ModelMap model/*,
-                           @RequestParam(value = "count",required = false,defaultValue = "5")*/) {
-        model.addAttribute("users", userService);
+    public String printUser(ModelMap model,
+                            @RequestParam(value = "count", required = false, defaultValue = "5") Integer count) {
+        model.addAttribute("users", userService.getUsers(count));
         User user = new User("A", "B", (byte) 1);
         User user1 = new User("Pavel", "Konstantinov", (byte) 23);
+        User user2 = new User("Stepa", "C", (byte) 13);
+        User user3 = new User("Masha", "D", (byte) 33);
+        User user4 = new User("Katya", "E", (byte) 43);
 
         userService.saveUser(user);
         userService.saveUser(user1);
+        userService.saveUser(user2);
+        userService.saveUser(user3);
+        userService.saveUser(user4);
+//        userService.deleteUser(1L);
+
         return "users";
     }
 }
