@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserDao {
     void saveUser(User user);
 
-//    User editUser(User user);
+    void updateUser(User user, Long id);
 
     List<User> getUsers(int count);
 

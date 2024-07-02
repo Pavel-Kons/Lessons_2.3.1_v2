@@ -28,12 +28,16 @@ public class UserController {
         User user3 = new User("Masha", "D", (byte) 33);
         User user4 = new User("Katya", "E", (byte) 43);
 
-        userService.saveUser(user);
-        userService.saveUser(user1);
-        userService.saveUser(user2);
-        userService.saveUser(user3);
-        userService.saveUser(user4);
+//        userService.saveUser(user);
+//        userService.saveUser(user1);
+//        userService.saveUser(user2);
+//        userService.saveUser(user3);
+//        userService.saveUser(user4);
 //        userService.deleteUser(1L);
+//        userService.updateUser(user, 2L);
+//        userService.updateUser(user, 3L);
+//        userService.updateUser(user, 4L);
+//        userService.updateUser(user, 5L);
 
         return "users";
     }
