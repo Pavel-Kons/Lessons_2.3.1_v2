@@ -29,44 +29,6 @@ public class DatabaseConfig {
         this.environment = environment;
     }
 
-//    private Properties hibernateProperties() {
-//        Properties properties = new Properties();
-//        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
-//        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-//        return properties;
-//    }
-//
-//    @Bean
-//    public DataSource dataSource() {
-//        BasicDataSource basicDataSource = new BasicDataSource();
-//        basicDataSource.setUrl(environment.getRequiredProperty("hibernate.connection.url"));
-//        basicDataSource.setDriverClassName(environment.getRequiredProperty("hibernate.driver_class"));
-//        basicDataSource.setUsername(environment.getRequiredProperty("hibernate.connection.username"));
-//        basicDataSource.setPassword(environment.getRequiredProperty("hibernate.connection.password"));
-//
-//        return basicDataSource;
-//    }
-//
-//    @Bean
-//    public LocalSessionFactoryBean sessionFactory() {
-//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-//        sessionFactory.setDataSource(dataSource());
-//        sessionFactory.setPackagesToScan("web.model");
-//        sessionFactory.setHibernateProperties(hibernateProperties());
-//        return sessionFactory;
-//    }
-//
-//    @Bean
-//    public HibernateTransactionManager transactionManager() {
-//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-//        transactionManager.setSessionFactory(sessionFactory().getObject());
-//        return transactionManager;
-//    }
-
-
-//////////////////////////////////////////////////////////
-
-
     @Bean
     public DataSource dataSource() {
 //        BasicDataSource basicDataSource = new BasicDataSource();
@@ -79,7 +41,6 @@ public class DatabaseConfig {
         basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         basicDataSource.setUsername("root");
         basicDataSource.setPassword("{tkkj4Djhkl");
-
 
         return basicDataSource;
     }
