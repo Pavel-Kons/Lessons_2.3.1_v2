@@ -29,7 +29,7 @@
 <!--</div>-->
 
 <div th:each="user : ${users}">
-    <a th:href="@{/user/editUser(id=${user.getId()})}"
+    <a th:href="@{/users/editUser(id=${user.getId()})}"
         th:text="${user.getName()+' '+user.getSurname()+' '+user.getAge()}"User</a>
 </div>
 

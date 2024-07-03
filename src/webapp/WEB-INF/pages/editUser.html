@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Edit user</title>
 </head>
 <body>
 <h1>Edit user</h1>
+<p th:text="${user.getName()}">Value</p>
+<p th:text="${user.getSurname()}">Value</p>
+<p th:text="${user.getId()}">Value</p>
+
 </body>
 </html>
