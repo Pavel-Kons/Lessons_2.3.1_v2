@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping("/users/newUser")
     public String newUser(ModelMap model) {
-        model.addAttribute("users/newUser");
+        model.addAttribute("newUser");
         return "newUser";
     }
 }
