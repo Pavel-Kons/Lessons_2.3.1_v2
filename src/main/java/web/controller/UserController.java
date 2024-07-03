@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
@@ -20,7 +22,7 @@ public class UserController {
     //    @RequestMapping(value = "/users"/*, method = RequestMethod.GET*/)
     @GetMapping(value = "/users"/*, method = RequestMethod.GET*/)
     public String printUser(ModelMap model,
-                            @RequestParam(value = "count", required = false, defaultValue = "10") Integer count) {
+                            @RequestParam(value = "count", required = false, defaultValue = "100") Integer count) {
         model.addAttribute("users", userService.getUsers(count));
         User user = new User("A", "B", (byte) 1);
         User user1 = new User("Pavel", "Konstantinov", (byte) 23);
@@ -44,8 +46,23 @@ public class UserController {
 
     @GetMapping("/users/newUser")
     public String newUser(ModelMap model) {
-        model.addAttribute("newUser");
+        model.addAttribute("user", new User());
         return "newUser";
+    }
+
+    @PostMapping("/users/newUser")
+    public String createNewUser(ModelMap model,
+                                @ModelAttribute("user") User user,
+                                @RequestParam("name") String name,
+                                @RequestParam("surname") String surname,
+                                @RequestParam("age") byte age) {
+//        user.setName(name);
+//        user.setSurname(surname);
+//        user.setAge(age);
+//        model.addAttribute("user", user);
+        userService.saveUser(user);
+
+        return "redirect:/users";
     }
 
     @GetMapping("/users/editUser")
