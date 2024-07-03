@@ -60,10 +60,10 @@ public class UserController {
     }
 
     @PatchMapping("/users")
-    public String update(ModelMap model,
-                         @ModelAttribute("user") User user,
-                         @RequestParam(value = "id", required = false) Long id) {
-//model.addAttribute()
-        return null;
+    public String updateUser(ModelMap model,
+                             @ModelAttribute("user") User user,
+                             @RequestParam(value = "id", required = false) Long id) {
+        userService.updateUser(user, id);
+        return "redirect:/users";
     }
 }

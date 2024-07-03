@@ -7,13 +7,13 @@
 </head>
 <body>
 <h1>Edit user</h1>
-<p th:text="${user.getName()}">Value</p>
-<p th:text="${user.getSurname()}">Value</p>
-<p th:text="${user.getId()}">Value</p>
-<br>
-<br>
-<br>
-<form th:action="@{/users/newUser{id}(id=${user.getId()})}" th:method="PATCH" th:object="${user}">
+<!--<p th:text="${user.getName()}">Value</p>-->
+<!--<p th:text="${user.getSurname()}">Value</p>-->
+<!--<p th:text="${user.getId()}">Value</p>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<form th:action="@{/users/{id}(id=${user.getId()})}" th:method="PATCH" th:object="${user}">
     <label for="name">
         Enter Name:
     </label>
