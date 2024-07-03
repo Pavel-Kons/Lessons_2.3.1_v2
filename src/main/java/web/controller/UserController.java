@@ -51,17 +51,8 @@ public class UserController {
     }
 
     @PostMapping("/users/newUser")
-    public String createNewUser(ModelMap model,
-                                @ModelAttribute("user") User user,
-                                @RequestParam("name") String name,
-                                @RequestParam("surname") String surname,
-                                @RequestParam("age") byte age) {
-//        user.setName(name);
-//        user.setSurname(surname);
-//        user.setAge(age);
-//        model.addAttribute("user", user);
+    public String createNewUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-
         return "redirect:/users";
     }
 
