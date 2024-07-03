@@ -20,7 +20,7 @@ public class UserController {
     //    @RequestMapping(value = "/users"/*, method = RequestMethod.GET*/)
     @GetMapping(value = "/users"/*, method = RequestMethod.GET*/)
     public String printUser(ModelMap model,
-                            @RequestParam(value = "count", required = false, defaultValue = "5") Integer count) {
+                            @RequestParam(value = "count", required = false, defaultValue = "10") Integer count) {
         model.addAttribute("users", userService.getUsers(count));
         User user = new User("A", "B", (byte) 1);
         User user1 = new User("Pavel", "Konstantinov", (byte) 23);
@@ -40,5 +40,11 @@ public class UserController {
 //        userService.updateUser(user, 5L);
 
         return "users";
+    }
+
+    @GetMapping("/users/newUser")
+    public String newUser(ModelMap model) {
+        model.addAttribute("users/newUser");
+        return "newUser";
     }
 }
