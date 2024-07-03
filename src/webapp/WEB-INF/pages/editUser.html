@@ -10,6 +10,31 @@
 <p th:text="${user.getName()}">Value</p>
 <p th:text="${user.getSurname()}">Value</p>
 <p th:text="${user.getId()}">Value</p>
+<br>
+<br>
+<br>
+<form th:action="@{/users/newUser{id}(id=${user.getId()})}" th:method="PATCH" th:object="${user}">
+    <label for="name">
+        Enter Name:
+    </label>
+    <input id="name" th:field="*{name}" type="text"/>
+    <br>
+    <br>
+    <label for="surname">
+        Enter Surname:
+    </label>
+    <input id="surname" th:field="*{surname}" type="text"/>
+    <br>
+    <br>
+    <label for="age">
+        Enter Age:
+    </label>
+    <input id="age" th:field="*{age}" type="number"/>
+    <br>
+    <br>
+    <input type="submit" value="Change this user">
+</form>
+
 
 </body>
 </html>

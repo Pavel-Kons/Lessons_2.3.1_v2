@@ -3,10 +3,7 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import web.model.User;
 import web.service.UserService;
 
@@ -60,5 +57,13 @@ public class UserController {
                            @RequestParam(value = "id", required = false) Long id) {
         model.addAttribute("user", userService.getUserById(id));
         return "editUser";
+    }
+
+    @PatchMapping("/users")
+    public String update(ModelMap model,
+                         @ModelAttribute("user") User user,
+                         @RequestParam(value = "id", required = false) Long id) {
+//model.addAttribute()
+        return null;
     }
 }
