@@ -21,10 +21,17 @@
     </tr>
 </table>
 
-<div>
-    <th:block th:each="user : ${users}">
-        <h3 th:text="${user.getName()+' '+user.getSurname()+' '+user.getAge()}"></h3>
-    </th:block>
+<!--<div>-->
+<!--    <th:block th:each="user : ${users}">-->
+<!--        <h3 th:text="${user.getName()+' '+user.getSurname()+' '+user.getAge()}"></h3>-->
+<!--&lt;!&ndash;        <h3 th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user}"></h3>&ndash;&gt;-->
+<!--    </th:block>-->
+<!--</div>-->
+
+<div th:each="user : ${users}">
+    <a th:href="@{/user/editUser(id=${user.getId()})}"
+        th:text="${user.getName()+' '+user.getSurname()+' '+user.getAge()}"User</a>
 </div>
+
 </body>
 </html>

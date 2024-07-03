@@ -24,9 +24,9 @@ public class UserController {
         model.addAttribute("users", userService.getUsers(count));
         User user = new User("A", "B", (byte) 1);
         User user1 = new User("Pavel", "Konstantinov", (byte) 23);
-        User user2 = new User("Stepa", "C", (byte) 13);
-        User user3 = new User("Masha", "D", (byte) 33);
-        User user4 = new User("Katya", "E", (byte) 43);
+        User user2 = new User("Stepa", "Andreew", (byte) 13);
+        User user3 = new User("Masha", "Polyakova", (byte) 33);
+        User user4 = new User("Katya", "Sidorovna", (byte) 43);
 
 //        userService.saveUser(user);
 //        userService.saveUser(user1);
@@ -46,5 +46,11 @@ public class UserController {
     public String newUser(ModelMap model) {
         model.addAttribute("newUser");
         return "newUser";
+    }
+
+    @GetMapping("/users/editUser")
+    public String editUser(ModelMap model) {
+        model.addAttribute("editUser");
+        return "editUser";
     }
 }
