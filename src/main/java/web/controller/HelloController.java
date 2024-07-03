@@ -17,5 +17,4 @@ public class HelloController {
         return "redirect:users";
 //        return "index";
     }
-
 }
