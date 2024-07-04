@@ -11,8 +11,6 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
-//    @PersistenceContext
-//    private EntityManager entityManager;
 
     public UserServiceImpl(UserDaoImpl userDao) {
         this.userDao = userDao;
@@ -34,12 +32,6 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user, Long id) {
         userDao.updateUser(user, id);
     }
-
-//    @Override
-//    @Transactional
-//    public User editUser(User user) {
-//        return userDao.editUser(user);
-//    }
 
     @Override
     @Transactional
