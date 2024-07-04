@@ -16,27 +16,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    //    @RequestMapping(value = "/users"/*, method = RequestMethod.GET*/)
-    @GetMapping(value = "/users"/*, method = RequestMethod.GET*/)
+    @GetMapping(value = "/users")
     public String printUser(ModelMap model,
                             @RequestParam(value = "count", required = false, defaultValue = "100") Integer count) {
         model.addAttribute("users", userService.getUsers(count));
-        User user = new User("A", "B", (byte) 1);
-        User user1 = new User("Pavel", "Konstantinov", (byte) 23);
-        User user2 = new User("Stepa", "Andreew", (byte) 13);
-        User user3 = new User("Masha", "Polyakova", (byte) 33);
-        User user4 = new User("Katya", "Sidorovna", (byte) 43);
-
-//        userService.saveUser(user);
-//        userService.saveUser(user1);
-//        userService.saveUser(user2);
-//        userService.saveUser(user3);
-//        userService.saveUser(user4);
-//        userService.deleteUser(1L);
-//        userService.updateUser(user, 2L);
-//        userService.updateUser(user, 3L);
-//        userService.updateUser(user, 4L);
-//        userService.updateUser(user, 5L);
 
         return "users";
     }
@@ -54,7 +37,7 @@ public class UserController {
 
     @GetMapping("/users/editUser")
     public String editUser(ModelMap model,
-                           @RequestParam(value = "id", required = false) Long id) {
+                           @RequestParam(value = "id") Long id) {
         model.addAttribute("user", userService.getUserById(id));
         return "editUser";
     }

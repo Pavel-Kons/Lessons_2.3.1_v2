@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -20,6 +21,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("web")
+@PropertySource("classpath:hibernate.properties")
 public class DatabaseConfig {
 
     private Environment environment;
@@ -31,16 +33,11 @@ public class DatabaseConfig {
 
     @Bean
     public DataSource dataSource() {
-//        BasicDataSource basicDataSource = new BasicDataSource();
         DriverManagerDataSource basicDataSource = new DriverManagerDataSource();
-//        basicDataSource.setUrl(environment.getRequiredProperty("hibernate.connection.url"));
-//        basicDataSource.setDriverClassName(environment.getRequiredProperty("hibernate.driver_class"));
-//        basicDataSource.setUsername(environment.getRequiredProperty("hibernate.connection.username"));
-//        basicDataSource.setPassword(environment.getRequiredProperty("hibernate.connection.password"));
-        basicDataSource.setUrl("jdbc:mysql://localhost:3306/schema");
-        basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        basicDataSource.setUsername("root");
-        basicDataSource.setPassword("{tkkj4Djhkl");
+        basicDataSource.setUrl(environment.getProperty("hibernate.connection.url"));
+        basicDataSource.setDriverClassName(environment.getProperty("hibernate.driver_class"));
+        basicDataSource.setUsername(environment.getProperty("hibernate.connection.username"));
+        basicDataSource.setPassword(environment.getProperty("hibernate.connection.password"));
 
         return basicDataSource;
     }
