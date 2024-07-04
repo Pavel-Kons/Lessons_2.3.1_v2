@@ -11,25 +11,25 @@
     <label for="name">
         Enter Name:
     </label>
-    <input id="name" th:field="*{name}" type="text"/>
+    <input id="name" th:charset="utf-8" th:field="*{name}" type="text"/>
     <br>
     <br>
     <label for="surname">
         Enter Surname:
     </label>
-    <input id="surname" th:field="*{surname}" type="text"/>
+    <input id="surname" th:charset="utf-8" th:field="*{surname}" type="text"/>
     <br>
     <br>
     <label for="age">
         Enter Age:
     </label>
-    <input id="age" th:field="*{age}" type="number"/>
+    <input id="age" th:charset="utf-8" th:field="*{age}" type="number"/>
     <br>
     <br>
     <input type="submit" value="Change this user">
 </form>
 <form th:action="@{/users(id=${user.getId()})}" th:method="DELETE">
-    <input type="submit" value="Delete"/>
+    <input th:charset="utf-8" type="submit" value="Delete"/>
 </form>
 </body>
 </html>

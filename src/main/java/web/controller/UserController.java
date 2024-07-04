@@ -42,7 +42,7 @@ public class UserController {
         return "editUser";
     }
 
-    @PatchMapping("/users")
+    @PatchMapping(value = "/users")
     public String updateUser(@ModelAttribute("user") User user,
                              @RequestParam(value = "id", required = false) Long id) {
         userService.updateUser(user, id);
