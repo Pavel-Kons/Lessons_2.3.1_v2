@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/users/newUser")
-    public String newUser(@ModelAttribute("user") User user) {
+    public String addNewUser(@ModelAttribute("user") User user) {
         return "newUser";
     }
 
@@ -36,8 +36,8 @@ public class UserController {
     }
 
     @GetMapping("/users/editUser")
-    public String editUser(ModelMap model,
-                           @RequestParam(value = "id") Long id) {
+    public String getUser(ModelMap model,
+                          @RequestParam(value = "id") Long id) {
         model.addAttribute("user", userService.getUserById(id));
         return "editUser";
     }
