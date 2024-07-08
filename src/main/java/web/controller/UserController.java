@@ -17,15 +17,15 @@ public class UserController {
     }
 
     @GetMapping(value = "/users")
-    public String printUser(ModelMap model,
-                            @RequestParam(value = "count", required = false, defaultValue = "100") Integer count) {
+    public String getAllUsers(ModelMap model,
+                              @RequestParam(value = "count", required = false, defaultValue = "100") Integer count) {
         model.addAttribute("users", userService.getUsers(count));
 
         return "users";
     }
 
     @GetMapping("/users/newUser")
-    public String addNewUser(@ModelAttribute("user") User user) {
+    public String getNewUserPage(@ModelAttribute("user") User user) {
         return "newUser";
     }
 
